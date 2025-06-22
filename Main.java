@@ -12,6 +12,7 @@ public class Main{
         Customer c1 = new Customer(1000001,"John Pizza", "customer@gmail.com", "123-456-7890", "123 Street Street #1234 City, State", orders,205);
         storage.addCustomer(c1);
 
-        System.out.println(storage.getCustomer(1000001).getName());
+        System.out.print(storage.getCustomer(1000001).getName() + " had ");
+        System.out.println(storage.getCustomer(1000001).getPreviousOrders().get(3));
     }
 }
