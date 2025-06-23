@@ -8,9 +8,10 @@ public class Customer {
     public String address;
     public ArrayList<String> previousOrders;
     public int points;
+    public ArrayList<Double> costs;
 
     // Constructor
-    public Customer(int id, String cName, String cEmail, String cNumber, String cAddress, ArrayList<String> pOrders, int p) {
+    public Customer(int id, String cName, String cEmail, String cNumber, String cAddress, ArrayList<String> pOrders, int p, ArrayList<Double> cCosts) {
         this.customerId = id;
         this.name = cName;
         this.email = cEmail;
@@ -18,6 +19,7 @@ public class Customer {
         this.address = cAddress;
         this.previousOrders = pOrders;
         this.points = p;
+        this.costs = cCosts;
     }
 
     // Getters and Setters
@@ -75,5 +77,13 @@ public class Customer {
 
     public void setPoints(int points) {
         this.points = points;
+    }
+
+    public ArrayList<Double> getCosts() {
+        return costs;
+    }
+
+    public void setCosts(ArrayList<Double> previousOrders) {
+        this.costs = costs;
     }
 }
