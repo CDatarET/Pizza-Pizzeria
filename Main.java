@@ -20,7 +20,15 @@ public class Main{
         Customer c1 = new Customer(1000001,"John Pizza", "customer@gmail.com", "123-456-7890", "123 Street Street #1234 City, State", orders, 290, costs);
         storage.addCustomer(c1);
 
-        System.out.print(storage.getCustomer(1000001).getName() + " had ");
-        System.out.println(storage.getCustomer(1000001).getPreviousOrders() + " as their last orders");
+        System.out.print(storage.getCustomer(1000001).getName() + "'s last orders were ");
+        System.out.println(storage.getCustomer(1000001).getPreviousOrders());
+
+        Customer c2 = new Customer(1000002, "Jane Doe", "jane@pubsec.gov", "111-111-1111", "111 Street, Lumina Square, New Eridu", null, 0, null);
+        storage.addCustomer(c2);
+
+        System.out.println(storage.getCustomer(1000002).getName());
+        storage.removeCustomer(1000002);
+        //System.out.println(storage.getCustomer(1000002).getName());
+        //^above statement will give null pointer error
     }
 }
