@@ -1,11 +1,26 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.*;
 import javax.swing.*;
 
 public class Main{
+    public static Storage storage = new Storage();
+
+    public static void addCustomer(int id){
+        Random rand = new Random();
+        String[] fNames = {"John", "Jane", "Ellen", "Rina", "Gregory", "Hugo", "Miyabi", "Bennett", "Ei", "Victor", "Evelyn", "Joseph", "Chiori", "Wise", "Belle", "Jack", "Ayaka", "Satoru", "Furina", "Clorinde", "Robert", "Barrack", "Donald", "Tsukishiro"};
+        String[] lNames = {" Raiden", " Kamisato", " Chevalier", " Chen", " Joestar", " House", " Wilson", " Black", " Tucker", " Doe", " Sebastiane", " Hoshimi", " Yanagi", " Patel", " Speedwagon", " Kamado", " Van Astrea", " Karasuma", " Yoichi", " Cuddy", " Sangonomiya"};
+        ArrayList<String> orders = new ArrayList<String>();
+        ArrayList<Double> costs = new ArrayList<Double>();
+
+        Customer customer = new Customer(id, fNames[rand.nextInt(fNames.length)] + lNames[rand.nextInt(lNames.length)], "placeholder@gmail.com", "placeholder number", "placeholder address", orders, 0, costs);
+        storage.addCustomer(customer);
+    }
+
     public static void main(String[] args){
         System.out.println("Hello World");
-        Storage storage = new Storage();
+        int initialId = 0;
+        addCustomer(initialId);
         
         JFrame frame = new JFrame("Pizza Pizzeria");
         frame.setSize(800,600);
