@@ -19,14 +19,32 @@ public class Main{
 
     public static void main(String[] args){
         System.out.println("Hello World");
+
         int initialId = 0;
-        addCustomer(initialId);
         
         JFrame frame = new JFrame("Pizza Pizzeria");
         frame.setSize(800,600);
         frame.setLayout(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
+
+        JButton newButton = new JButton("Start");
+        newButton.setBounds((800 / 2) - 40, (600 / 2) - 20,80,40);
+        frame.add(newButton);
+        newButton.addActionListener(new ActionListener() {
+            boolean init = true;
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Action to be performed when button is clicked
+                if(init){
+                    System.out.println("Started");
+                    newButton.setBounds(600, 500, 150, 40);
+                    newButton.setText("Submit Order");
+                }
+                init = false;
+                addCustomer(initialId);
+            }
+        });
 
         JLabel pizzaBase = new JLabel();
         pizzaBase.setBounds((800 / 2) - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
