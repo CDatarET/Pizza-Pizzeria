@@ -51,7 +51,6 @@ public class Main{
                 System.out.println("Added Mushrooms");
                 mushrooms.setVisible(true);
                 frame.repaint();
-                //frame.revalidate();
             }
         });
 
@@ -64,7 +63,6 @@ public class Main{
                 System.out.println("Added Olives");
                 olives.setVisible(true);
                 frame.repaint();
-                //frame.revalidate();
             }
         });
 
@@ -96,8 +94,7 @@ public class Main{
                     oliveButton.setVisible(true);
                     mushroomButton.setVisible(true);
                     pizzaBase.setVisible(true);
-                    //frame.repaint();
-                    //frame.revalidate();
+                    frame.repaint();
                 }
                 init = false;
                 addCustomer(initialId);
