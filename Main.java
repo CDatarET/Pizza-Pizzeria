@@ -42,17 +42,9 @@ public class Main{
         mushrooms.setBounds((800 / 2) - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
         mushrooms.setIcon(new ImageIcon("mushroom.png"));
 
-        JButton mushroomButton = new JButton("Mushrooms");
-        mushroomButton.setBounds(10,50,80,40);
-        mushroomButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // Action to be performed when button is clicked
-                System.out.println("Added Mushrooms");
-                mushrooms.setVisible(true);
-                frame.repaint();
-            }
-        });
+        JLabel jalapenos = new JLabel();
+        jalapenos.setBounds((800 / 2) - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
+        jalapenos.setIcon(new ImageIcon("jalapeno.png"));
 
         JButton oliveButton = new JButton("Olives");
         oliveButton.setBounds(10,10,80,40);
@@ -66,6 +58,30 @@ public class Main{
             }
         });
 
+        JButton mushroomButton = new JButton("Mushrooms");
+        mushroomButton.setBounds(10,60,100,40);
+        mushroomButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Action to be performed when button is clicked
+                System.out.println("Added Mushrooms");
+                mushrooms.setVisible(true);
+                frame.repaint();
+            }
+        });
+
+        JButton jalapenoButton = new JButton("Jalapenos");
+        jalapenoButton.setBounds(10,110,100,40);
+        jalapenoButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Action to be performed when button is clicked
+                System.out.println("Added Jalapenos");
+                jalapenos.setVisible(true);
+                frame.repaint();
+            }
+        });
+
         JButton newButton = new JButton("Start");
         newButton.setBounds((800 / 2) - 40, (600 / 2) - 20,80,40);
         frame.add(newButton);
@@ -73,11 +89,15 @@ public class Main{
         oliveButton.setVisible(false);
         frame.add(mushroomButton);
         mushroomButton.setVisible(false);
+        frame.add(jalapenoButton);
+        jalapenoButton.setVisible(false);
 
         frame.add(olives);
         olives.setVisible(false);
         frame.add(mushrooms);
         mushrooms.setVisible(false);
+        frame.add(jalapenos);
+        jalapenos.setVisible(false);
         frame.add(pizzaBase);
         pizzaBase.setVisible(false);
 
@@ -93,6 +113,7 @@ public class Main{
                     newButton.setText("Submit Order");
                     oliveButton.setVisible(true);
                     mushroomButton.setVisible(true);
+                    jalapenoButton.setVisible(true);
                     pizzaBase.setVisible(true);
                     frame.repaint();
                 }
