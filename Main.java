@@ -50,6 +50,10 @@ public class Main{
         bananaPeppers.setBounds((800 / 2) - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
         bananaPeppers.setIcon(new ImageIcon("bananaPepper.png"));
 
+        JLabel pepperoni = new JLabel();
+        pepperoni.setBounds((800 / 2) - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
+        pepperoni.setIcon(new ImageIcon("pepperoni.png"));
+
         JButton oliveButton = new JButton("Olives");
         oliveButton.setBounds(10,10,80,40);
         oliveButton.addActionListener(new ActionListener() {
@@ -98,6 +102,18 @@ public class Main{
             }
         });
 
+        JButton pepperoniButton = new JButton("Pepperoni");
+        pepperoniButton.setBounds(10,210,100,40);
+        pepperoniButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Action to be performed when button is clicked
+                System.out.println("Added Pepperoni");
+                pepperoni.setVisible(true);
+                frame.repaint();
+            }
+        });
+
         JButton newButton = new JButton("Start");
         newButton.setBounds((800 / 2) - 40, (600 / 2) - 20,80,40);
         frame.add(newButton);
@@ -109,6 +125,8 @@ public class Main{
         jalapenoButton.setVisible(false);
         frame.add(bananaPepperButton);
         bananaPepperButton.setVisible(false);
+        frame.add(pepperoniButton);
+        pepperoniButton.setVisible(false);
 
         frame.add(olives);
         olives.setVisible(false);
@@ -118,6 +136,8 @@ public class Main{
         jalapenos.setVisible(false);
         frame.add(bananaPeppers);
         bananaPeppers.setVisible(false);
+        frame.add(pepperoni);
+        pepperoni.setVisible(false);
         frame.add(pizzaBase);
         pizzaBase.setVisible(false);
 
@@ -135,6 +155,7 @@ public class Main{
                     mushroomButton.setVisible(true);
                     jalapenoButton.setVisible(true);
                     bananaPepperButton.setVisible(true);
+                    pepperoniButton.setVisible(true);
                     pizzaBase.setVisible(true);
                     frame.repaint();
                 }
