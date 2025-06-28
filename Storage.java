@@ -16,4 +16,8 @@ public class Storage{
         System.out.println("Removed Customer " + map.get(id).getName());
         map.remove(id);
     }
+
+    public boolean exists(int id){
+        return(map.containsKey(id));
+    }
 }

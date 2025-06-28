@@ -5,7 +5,9 @@ import javax.swing.*;
 
 public class Main{
     public static Storage storage = new Storage();
-    public static int initialId = 0;
+    public static int initialId = 00000;
+    public static int count = 0;
+    public static int limit = 5;
 
     public static void addCustomer(int id){
         Random rand = new Random();
@@ -20,9 +22,7 @@ public class Main{
 
     public static void main(String[] args){
         System.out.println("Hello World");
-
         
-        int count = 5;
         
         JFrame frame = new JFrame("Pizza Pizzeria");
         frame.setSize(800,600);
@@ -30,6 +30,7 @@ public class Main{
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
 
+        //pizza components
         JLabel pizzaBase = new JLabel();
         pizzaBase.setBounds((800 / 2) - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
         pizzaBase.setIcon(new ImageIcon("pizzaBase.png"));
@@ -54,6 +55,7 @@ public class Main{
         pepperoni.setBounds((800 / 2) - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
         pepperoni.setIcon(new ImageIcon("pepperoni.png"));
 
+        //buttons
         JButton oliveButton = new JButton("Olives");
         oliveButton.setBounds(10,10,80,40);
         oliveButton.addActionListener(new ActionListener() {
@@ -117,27 +119,39 @@ public class Main{
         JButton newButton = new JButton("Start");
         newButton.setBounds((800 / 2) - 40, (600 / 2) - 20,80,40);
         frame.add(newButton);
+
+        //add buttons
         frame.add(oliveButton);
         oliveButton.setVisible(false);
+
         frame.add(mushroomButton);
         mushroomButton.setVisible(false);
+
         frame.add(jalapenoButton);
         jalapenoButton.setVisible(false);
+
         frame.add(bananaPepperButton);
         bananaPepperButton.setVisible(false);
+
         frame.add(pepperoniButton);
         pepperoniButton.setVisible(false);
 
+        //add components
         frame.add(olives);
         olives.setVisible(false);
+
         frame.add(mushrooms);
         mushrooms.setVisible(false);
+
         frame.add(jalapenos);
         jalapenos.setVisible(false);
+
         frame.add(bananaPeppers);
         bananaPeppers.setVisible(false);
+
         frame.add(pepperoni);
         pepperoni.setVisible(false);
+
         frame.add(pizzaBase);
         pizzaBase.setVisible(false);
 
@@ -146,7 +160,6 @@ public class Main{
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Action to be performed when button is clicked
-                initialId++;
                 if(init){
                     System.out.println("Started");
                     newButton.setBounds(600, 500, 150, 40);
@@ -158,9 +171,20 @@ public class Main{
                     pepperoniButton.setVisible(true);
                     pizzaBase.setVisible(true);
                     frame.repaint();
+                    addCustomer(initialId);
+                }
+                else{
+                    Random rand = new Random();
+                    int id = rand.nextInt(initialId, limit);
+                    if(storage.exists(id)){
+                        System.out.println(storage.getCustomer(id).getName() +" "+id);
+                    }
+                    else{
+                        addCustomer(id);
+                        count++;
+                    }
                 }
                 init = false;
-                addCustomer(initialId);
             }
         });
 
