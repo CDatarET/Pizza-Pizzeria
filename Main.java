@@ -7,28 +7,40 @@ public class Main{
     public static Storage storage = new Storage();
     public static int initialId = 00000;
     public static int count = 0;
-    public static int limit = 5;
+    public static int limit = 10;
 
     public static void addCustomer(int id){
         Random rand = new Random();
         String[] fNames = {"John", "Jane", "Ellen", "Rina", "Gregory", "Hugo", "Miyabi", "Bennett", "Ei", "Victor", "Evelyn", "Joseph", "Chiori", "Wise", "Belle", "Jack", "Ayaka", "Satoru", "Furina", "Clorinde", "Robert", "Barrack", "Donald", "Tsukishiro"};
         String[] lNames = {" Raiden", " Kamisato", " Chevalier", " Chen", " Joestar", " House", " Wilson", " Black", " Tucker", " Doe", " Sebastiane", " Hoshimi", " Yanagi", " Patel", " Speedwagon", " Kamado", " Van Astrea", " Karasuma", " Yoichi", " Cuddy", " Sangonomiya"};
-        ArrayList<String> orders = new ArrayList<String>();
+        ArrayList<Pizza> orders = new ArrayList<Pizza>();
         ArrayList<Double> costs = new ArrayList<Double>();
 
         Customer customer = new Customer(id, fNames[rand.nextInt(fNames.length)] + lNames[rand.nextInt(lNames.length)], "placeholder@gmail.com", "placeholder number", "placeholder address", orders, 0, costs);
         storage.addCustomer(customer);
     }
 
+    public static void addPizza(int id){
+        
+    }
+
+    public static void setOrder(JLabel label, int id){
+        label.setText(storage.getCustomer(id).name);
+    }
+
     public static void main(String[] args){
         System.out.println("Hello World");
-        
         
         JFrame frame = new JFrame("Pizza Pizzeria");
         frame.setSize(800,600);
         frame.setLayout(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
+
+        JLabel orderLabel = new JLabel();
+        orderLabel.setBounds(300, 50, 400, 30);
+        orderLabel.setText("diddy's despicable disciple");
+        frame.add(orderLabel);
 
         //pizza components
         JLabel pizzaBase = new JLabel();
@@ -172,6 +184,7 @@ public class Main{
                     pizzaBase.setVisible(true);
                     frame.repaint();
                     addCustomer(initialId);
+                    setOrder(orderLabel, initialId);
                 }
                 else{
                     Random rand = new Random();
@@ -183,7 +196,15 @@ public class Main{
                         addCustomer(id);
                         count++;
                     }
+                    setOrder(orderLabel, id);
                 }
+                //reset pizza base
+                olives.setVisible(false);
+                mushrooms.setVisible(false);
+                jalapenos.setVisible(false);
+                bananaPeppers.setVisible(false);
+                pepperoni.setVisible(false);
+
                 init = false;
             }
         });
