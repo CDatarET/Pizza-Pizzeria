@@ -1,7 +1,9 @@
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.*;
 import javax.swing.*;
+import javax.swing.border.Border;
 
 public class Main{
     public static Storage storage = new Storage();
@@ -11,8 +13,8 @@ public class Main{
 
     public static void addCustomer(int id){
         Random rand = new Random();
-        String[] fNames = {"John", "Jane", "Ellen", "Rina", "Gregory", "Hugo", "Miyabi", "Bennett", "Ei", "Victor", "Evelyn", "Joseph", "Chiori", "Wise", "Belle", "Jack", "Ayaka", "Satoru", "Furina", "Clorinde", "Robert", "Barrack", "Donald", "Tsukishiro"};
-        String[] lNames = {" Raiden", " Kamisato", " Chevalier", " Chen", " Joestar", " House", " Wilson", " Black", " Tucker", " Doe", " Sebastiane", " Hoshimi", " Yanagi", " Patel", " Speedwagon", " Kamado", " Van Astrea", " Karasuma", " Yoichi", " Cuddy", " Sangonomiya"};
+        String[] fNames = {"John", "Jane", "Ellen", "Rina", "Gregory", "Hugo", "Miyabi", "Bennett", "Ei", "Victor", "Evelyn", "Joseph", "Chiori", "Wise", "Belle", "Jack", "Ayaka", "Satoru", "Furina", "Clorinde", "Robert", "Barrack", "Donald", "Tsukishiro", "Luke", "Anakin", "Samuel", "Giorno"};
+        String[] lNames = {" Raiden", " Kamisato", " Chevalier", " Chen", " Joestar", " House", " Wilson", " Black", " Tucker", " Doe", " Sebastiane", " Hoshimi", " Yanagi", " Patel", " Speedwagon", " Kamado", " Van Astrea", " Karasuma", " Yoichi", " Cuddy", " Sangonomiya", " Skywalker", " Windu", " Kenobi"};
         ArrayList<Pizza> orders = new ArrayList<Pizza>();
         ArrayList<Double> costs = new ArrayList<Double>();
 
@@ -38,8 +40,12 @@ public class Main{
         frame.setLocationRelativeTo(null);
 
         JLabel orderLabel = new JLabel();
-        orderLabel.setBounds(300, 50, 400, 30);
-        orderLabel.setText("diddy's despicable disciple");
+        orderLabel.setBounds(350, 50, 100, 30);
+        orderLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        orderLabel.setVerticalAlignment(SwingConstants.CENTER);
+        orderLabel.setText("Pizza Pizzeria");
+        Border border = BorderFactory.createLineBorder(Color.black, 2);
+        orderLabel.setBorder(border);
         frame.add(orderLabel);
 
         //pizza components
@@ -176,6 +182,8 @@ public class Main{
                     System.out.println("Started");
                     newButton.setBounds(600, 500, 150, 40);
                     newButton.setText("Submit Order");
+                    orderLabel.setBounds(400 - 75, 50, 150, 30);
+
                     oliveButton.setVisible(true);
                     mushroomButton.setVisible(true);
                     jalapenoButton.setVisible(true);
@@ -183,6 +191,7 @@ public class Main{
                     pepperoniButton.setVisible(true);
                     pizzaBase.setVisible(true);
                     frame.repaint();
+
                     addCustomer(initialId);
                     setOrder(orderLabel, initialId);
                 }
