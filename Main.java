@@ -73,6 +73,10 @@ public class Main{
         pepperoni.setBounds((800 / 2) - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
         pepperoni.setIcon(new ImageIcon("pepperoni.png"));
 
+        JLabel basil = new JLabel();
+        basil.setBounds((800 / 2) - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
+        basil.setIcon(new ImageIcon("basil.png"));
+
         //buttons
         JButton oliveButton = new JButton("Olives");
         oliveButton.setBounds(10,10,80,40);
@@ -134,6 +138,18 @@ public class Main{
             }
         });
 
+        JButton basilButton = new JButton("Basil");
+        basilButton.setBounds(10,260,80,40);
+        basilButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Action to be performed when button is clicked
+                System.out.println("Added Basil");
+                basil.setVisible(true);
+                frame.repaint();
+            }
+        });
+
         JButton newButton = new JButton("Start");
         newButton.setBounds((800 / 2) - 40, (600 / 2) - 20,80,40);
         frame.add(newButton);
@@ -154,6 +170,9 @@ public class Main{
         frame.add(pepperoniButton);
         pepperoniButton.setVisible(false);
 
+        frame.add(basilButton);
+        basilButton.setVisible(false);
+
         //add components
         frame.add(olives);
         olives.setVisible(false);
@@ -169,6 +188,9 @@ public class Main{
 
         frame.add(pepperoni);
         pepperoni.setVisible(false);
+
+        frame.add(basil);
+        basil.setVisible(false);
 
         frame.add(pizzaBase);
         pizzaBase.setVisible(false);
@@ -189,6 +211,7 @@ public class Main{
                     jalapenoButton.setVisible(true);
                     bananaPepperButton.setVisible(true);
                     pepperoniButton.setVisible(true);
+                    basilButton.setVisible(true);
                     pizzaBase.setVisible(true);
                     frame.repaint();
 
@@ -213,6 +236,7 @@ public class Main{
                 jalapenos.setVisible(false);
                 bananaPeppers.setVisible(false);
                 pepperoni.setVisible(false);
+                basil.setVisible(false);
 
                 init = false;
             }
