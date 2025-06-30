@@ -26,10 +26,6 @@ public class Main{
         
     }
 
-    public static void setOrder(JLabel label, int id){
-        label.setText(storage.getCustomer(id).name);
-    }
-
     public static void main(String[] args){
         System.out.println("Hello World");
         
@@ -76,6 +72,10 @@ public class Main{
         JLabel basil = new JLabel();
         basil.setBounds((800 / 2) - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
         basil.setIcon(new ImageIcon("basil.png"));
+
+        JLabel onions = new JLabel();
+        onions.setBounds((800 / 2) - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
+        onions.setIcon(new ImageIcon("onions.png"));
 
         //buttons
         JButton oliveButton = new JButton("Olives");
@@ -150,6 +150,18 @@ public class Main{
             }
         });
 
+        JButton onionButton = new JButton("Onions");
+        onionButton.setBounds(10,310,80,40);
+        onionButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Action to be performed when button is clicked
+                System.out.println("Added Onions");
+                onions.setVisible(true);
+                frame.repaint();
+            }
+        });
+
         JButton newButton = new JButton("Start");
         newButton.setBounds((800 / 2) - 40, (600 / 2) - 20,80,40);
         frame.add(newButton);
@@ -173,6 +185,9 @@ public class Main{
         frame.add(basilButton);
         basilButton.setVisible(false);
 
+        frame.add(onionButton);
+        onionButton.setVisible(false);
+
         //add components
         frame.add(olives);
         olives.setVisible(false);
@@ -191,6 +206,9 @@ public class Main{
 
         frame.add(basil);
         basil.setVisible(false);
+
+        frame.add(onions);
+        onions.setVisible(false);
 
         frame.add(pizzaBase);
         pizzaBase.setVisible(false);
@@ -212,11 +230,12 @@ public class Main{
                     bananaPepperButton.setVisible(true);
                     pepperoniButton.setVisible(true);
                     basilButton.setVisible(true);
+                    onionButton.setVisible(true);
                     pizzaBase.setVisible(true);
                     frame.repaint();
 
                     addCustomer(initialId);
-                    setOrder(orderLabel, initialId);
+                    orderLabel.setText(storage.getCustomer(initialId).name);
                 }
                 else{
                     Random rand = new Random();
@@ -228,7 +247,7 @@ public class Main{
                         addCustomer(id);
                         count++;
                     }
-                    setOrder(orderLabel, id);
+                    orderLabel.setText(storage.getCustomer(id).name);
                 }
                 //reset pizza base
                 olives.setVisible(false);
@@ -237,6 +256,7 @@ public class Main{
                 bananaPeppers.setVisible(false);
                 pepperoni.setVisible(false);
                 basil.setVisible(false);
+                onions.setVisible(false);
 
                 init = false;
             }
