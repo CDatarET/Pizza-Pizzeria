@@ -77,7 +77,7 @@ public class Main{
         onions.setBounds((800 / 2) - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
         onions.setIcon(new ImageIcon("onions.png"));
 
-        //buttons
+        //buttons for adding
         JButton oliveButton = new JButton("Olives");
         oliveButton.setBounds(10,10,80,40);
         oliveButton.addActionListener(new ActionListener() {
@@ -166,9 +166,96 @@ public class Main{
         newButton.setBounds((800 / 2) - 40, (600 / 2) - 20,80,40);
         frame.add(newButton);
 
+        //remove buttons
+        JButton removeOlive = new JButton("Remove Olives");
+        removeOlive.setBounds(800 - 150 - 20,10,150,40);
+        removeOlive.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Action to be performed when button is clicked
+                System.out.println("Removed Olives");
+                olives.setVisible(false);
+                frame.repaint();
+            }
+        });
+
+        JButton removeMushroom = new JButton("Mushrooms");
+        mushroomButton.setBounds(10,60,100,40);
+        mushroomButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Action to be performed when button is clicked
+                System.out.println("Added Mushrooms");
+                mushrooms.setVisible(true);
+                frame.repaint();
+            }
+        });
+
+        JButton removeJalapeno = new JButton("Jalapenos");
+        jalapenoButton.setBounds(10,110,100,40);
+        jalapenoButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Action to be performed when button is clicked
+                System.out.println("Added Jalapenos");
+                jalapenos.setVisible(true);
+                frame.repaint();
+            }
+        });
+
+        JButton removeBananaPepper = new JButton("Banana Peppers");
+        bananaPepperButton.setBounds(10,160,130,40);
+        bananaPepperButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Action to be performed when button is clicked
+                System.out.println("Added Banana Peppers");
+                bananaPeppers.setVisible(true);
+                frame.repaint();
+            }
+        });
+
+        JButton removePepperoni = new JButton("Pepperoni");
+        pepperoniButton.setBounds(10,210,100,40);
+        pepperoniButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Action to be performed when button is clicked
+                System.out.println("Added Pepperoni");
+                pepperoni.setVisible(true);
+                frame.repaint();
+            }
+        });
+
+        JButton removeBasil = new JButton("Basil");
+        basilButton.setBounds(10,260,80,40);
+        basilButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Action to be performed when button is clicked
+                System.out.println("Added Basil");
+                basil.setVisible(true);
+                frame.repaint();
+            }
+        });
+
+        JButton removeOnion = new JButton("Onions");
+        onionButton.setBounds(10,310,80,40);
+        onionButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Action to be performed when button is clicked
+                System.out.println("Added Onions");
+                onions.setVisible(true);
+                frame.repaint();
+            }
+        });
+
         //add buttons
         frame.add(oliveButton);
         oliveButton.setVisible(false);
+        frame.add(removeOlive);
+        removeOlive.setVisible(false);
 
         frame.add(mushroomButton);
         mushroomButton.setVisible(false);
@@ -225,6 +312,7 @@ public class Main{
                     orderLabel.setBounds(400 - 75, 50, 150, 30);
 
                     oliveButton.setVisible(true);
+                    removeOlive.setVisible(true);
                     mushroomButton.setVisible(true);
                     jalapenoButton.setVisible(true);
                     bananaPepperButton.setVisible(true);
