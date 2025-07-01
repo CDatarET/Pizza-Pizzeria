@@ -80,6 +80,10 @@ public class Main{
         JLabel tomato = new JLabel();
         tomato.setBounds((800 / 2) - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
         tomato.setIcon(new ImageIcon("tomato.png"));
+        
+        JLabel bellPepper = new JLabel();
+        bellPepper.setBounds((800 / 2) - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
+        bellPepper.setIcon(new ImageIcon("bellPepper.png"));
 
         //buttons for adding
         JButton oliveButton = new JButton("Olives");
@@ -174,6 +178,18 @@ public class Main{
                 // Action to be performed when button is clicked
                 System.out.println("Added Tomatoes");
                 tomato.setVisible(true);
+                frame.repaint();
+            }
+        });
+
+        JButton bellPepperButton = new JButton("Bell Peppers");
+        bellPepperButton.setBounds(10,410,100,40);
+        bellPepperButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Action to be performed when button is clicked
+                System.out.println("Added Bell Peppers");
+                bellPepper.setVisible(true);
                 frame.repaint();
             }
         });
@@ -294,6 +310,9 @@ public class Main{
         frame.add(tomatoButton);
         tomatoButton.setVisible(false);
 
+        frame.add(bellPepperButton);
+        bellPepperButton.setVisible(false);
+
         //add components
         frame.add(olives);
         olives.setVisible(false);
@@ -319,6 +338,9 @@ public class Main{
         frame.add(tomato);
         tomato.setVisible(false);
 
+        frame.add(bellPepper);
+        bellPepper.setVisible(false);
+
         frame.add(pizzaBase);
         pizzaBase.setVisible(false);
 
@@ -342,6 +364,7 @@ public class Main{
                     basilButton.setVisible(true);
                     onionButton.setVisible(true);
                     tomatoButton.setVisible(true);
+                    bellPepperButton.setVisible(true);
                     pizzaBase.setVisible(true);
                     frame.repaint();
 
@@ -369,6 +392,7 @@ public class Main{
                 basil.setVisible(false);
                 onions.setVisible(false);
                 tomato.setVisible(false);
+                bellPepper.setVisible(false);
 
                 init = false;
             }
