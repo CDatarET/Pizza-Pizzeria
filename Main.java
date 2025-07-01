@@ -77,6 +77,10 @@ public class Main{
         onions.setBounds((800 / 2) - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
         onions.setIcon(new ImageIcon("onions.png"));
 
+        JLabel tomato = new JLabel();
+        tomato.setBounds((800 / 2) - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
+        tomato.setIcon(new ImageIcon("tomato.png"));
+
         //buttons for adding
         JButton oliveButton = new JButton("Olives");
         oliveButton.setBounds(10,10,80,40);
@@ -158,6 +162,18 @@ public class Main{
                 // Action to be performed when button is clicked
                 System.out.println("Added Onions");
                 onions.setVisible(true);
+                frame.repaint();
+            }
+        });
+
+        JButton tomatoButton = new JButton("Tomatoes");
+        tomatoButton.setBounds(10,360,90,40);
+        tomatoButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Action to be performed when button is clicked
+                System.out.println("Added Tomatoes");
+                tomato.setVisible(true);
                 frame.repaint();
             }
         });
@@ -275,6 +291,9 @@ public class Main{
         frame.add(onionButton);
         onionButton.setVisible(false);
 
+        frame.add(tomatoButton);
+        tomatoButton.setVisible(false);
+
         //add components
         frame.add(olives);
         olives.setVisible(false);
@@ -296,6 +315,9 @@ public class Main{
 
         frame.add(onions);
         onions.setVisible(false);
+
+        frame.add(tomato);
+        tomato.setVisible(false);
 
         frame.add(pizzaBase);
         pizzaBase.setVisible(false);
@@ -319,6 +341,7 @@ public class Main{
                     pepperoniButton.setVisible(true);
                     basilButton.setVisible(true);
                     onionButton.setVisible(true);
+                    tomatoButton.setVisible(true);
                     pizzaBase.setVisible(true);
                     frame.repaint();
 
@@ -345,6 +368,7 @@ public class Main{
                 pepperoni.setVisible(false);
                 basil.setVisible(false);
                 onions.setVisible(false);
+                tomato.setVisible(false);
 
                 init = false;
             }
