@@ -3,12 +3,14 @@ public class Pizza {
     private String[] toppings;
     private int cost;
     private int[] tops;
+    private Pizza next;
 
-    public Pizza(String name, String[] toppings, int cost, int[] tops) {
+    public Pizza(String name, String[] toppings, int cost, int[] tops, Pizza next) {
         this.name = name;
         this.toppings = toppings;
         this.cost = cost;
         this.tops = tops;
+        this.next = next;
     }
 
     // Getter and Setter for name
