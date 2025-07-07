@@ -211,14 +211,14 @@ public class Main{
             }
         });
 
-        JButton removeMushroom = new JButton("Mushrooms");
-        mushroomButton.setBounds(10,60,100,40);
-        mushroomButton.addActionListener(new ActionListener() {
+        JButton removeMushroom = new JButton("Remove Mushrooms");
+        removeMushroom.setBounds(800 - 160 - 20,60,160,40);
+        removeMushroom.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Action to be performed when button is clicked
-                System.out.println("Added Mushrooms");
-                mushrooms.setVisible(true);
+                System.out.println("Removed Mushrooms");
+                mushrooms.setVisible(false);
                 frame.repaint();
             }
         });
@@ -291,6 +291,8 @@ public class Main{
 
         frame.add(mushroomButton);
         mushroomButton.setVisible(false);
+        frame.add(removeMushroom);
+        removeMushroom.setVisible(false);
 
         frame.add(jalapenoButton);
         jalapenoButton.setVisible(false);
@@ -357,15 +359,26 @@ public class Main{
 
                     oliveButton.setVisible(true);
                     removeOlive.setVisible(true);
+
                     mushroomButton.setVisible(true);
+                    removeMushroom.setVisible(true);
+
                     jalapenoButton.setVisible(true);
+
                     bananaPepperButton.setVisible(true);
+
                     pepperoniButton.setVisible(true);
+
                     basilButton.setVisible(true);
+
                     onionButton.setVisible(true);
+
                     tomatoButton.setVisible(true);
+
                     bellPepperButton.setVisible(true);
+
                     pizzaBase.setVisible(true);
+
                     frame.repaint();
 
                     addCustomer(initialId);
