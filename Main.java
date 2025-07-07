@@ -223,14 +223,14 @@ public class Main{
             }
         });
 
-        JButton removeJalapeno = new JButton("Jalapenos");
-        jalapenoButton.setBounds(10,110,100,40);
-        jalapenoButton.addActionListener(new ActionListener() {
+        JButton removeJalapeno = new JButton("Remove Jalapenos");
+        removeJalapeno.setBounds(800 - 150 - 20,110,150,40);
+        removeJalapeno.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Action to be performed when button is clicked
-                System.out.println("Added Jalapenos");
-                jalapenos.setVisible(true);
+                System.out.println("Removed Jalapenos");
+                jalapenos.setVisible(false);
                 frame.repaint();
             }
         });
@@ -296,6 +296,8 @@ public class Main{
 
         frame.add(jalapenoButton);
         jalapenoButton.setVisible(false);
+        frame.add(removeJalapeno);
+        removeJalapeno.setVisible(false);
 
         frame.add(bananaPepperButton);
         bananaPepperButton.setVisible(false);
@@ -364,6 +366,7 @@ public class Main{
                     removeMushroom.setVisible(true);
 
                     jalapenoButton.setVisible(true);
+                    removeJalapeno.setVisible(true);
 
                     bananaPepperButton.setVisible(true);
 
