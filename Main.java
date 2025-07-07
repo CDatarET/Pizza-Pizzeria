@@ -183,7 +183,7 @@ public class Main{
         });
 
         JButton bellPepperButton = new JButton("Bell Peppers");
-        bellPepperButton.setBounds(10,410,100,40);
+        bellPepperButton.setBounds(10,410,120,40);
         bellPepperButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
