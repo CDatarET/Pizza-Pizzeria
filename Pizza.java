@@ -4,6 +4,7 @@ public class Pizza {
     private int cost;
     private int[] tops;
     private Pizza next;
+    private Pizza previous;
 
     public Pizza(String name, String[] toppings, int cost, int[] tops, Pizza next) {
         this.name = name;
@@ -11,6 +12,7 @@ public class Pizza {
         this.cost = cost;
         this.tops = tops;
         this.next = next;
+        this.previous = null;
     }
 
     // Getter and Setter for name
@@ -47,5 +49,20 @@ public class Pizza {
 
     public void setTops(int[] tops) {
         this.tops = tops;
+    }
+
+    //Getter and Setter for next
+    public Pizza getNext(){
+        return next;
+    }
+
+    public void addPizza(Pizza pizza){
+        this.next = pizza;
+        this.next.previous = this;
+    }
+
+    //Getter and Setter for previous
+    public Pizza getPrev(){
+        return previous;
     }
 }

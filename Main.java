@@ -22,10 +22,6 @@ public class Main{
         storage.addCustomer(customer);
     }
 
-    public static void addPizza(int id){
-        
-    }
-
     public static void main(String[] args){
         System.out.println("Hello World");
         
