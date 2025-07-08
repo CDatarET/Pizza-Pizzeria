@@ -411,9 +411,6 @@ public class Main{
                 bellPepper.setVisible(false);
 
                 init = false;
-
-                Order o = new Order();
-                System.out.println(o.numPizza);
             }
         });
 
