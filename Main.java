@@ -22,6 +22,10 @@ public class Main{
         storage.addCustomer(customer);
     }
 
+    public static void createOrder(){
+
+    }
+
     public static void main(String[] args){
         System.out.println("Hello World");
         
@@ -407,6 +411,9 @@ public class Main{
                 bellPepper.setVisible(false);
 
                 init = false;
+
+                Order o = new Order();
+                System.out.println(o.numPizza);
             }
         });
 

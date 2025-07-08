@@ -51,17 +51,18 @@ public class Pizza {
         this.tops = tops;
     }
 
-    //Getter and Setter for next
+    //Getter for next
     public Pizza getNext(){
         return next;
     }
 
+    //add new pizza
     public void addPizza(Pizza pizza){
         this.next = pizza;
         this.next.previous = this;
     }
 
-    //Getter and Setter for previous
+    //Getter for previous
     public Pizza getPrev(){
         return previous;
     }
