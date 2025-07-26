@@ -23,7 +23,7 @@ public class Main{
     }
 
     public static void createOrder(){
-
+        
     }
 
     public static void main(String[] args){
@@ -235,14 +235,14 @@ public class Main{
             }
         });
 
-        JButton removeBananaPepper = new JButton("Banana Peppers");
-        bananaPepperButton.setBounds(10,160,130,40);
-        bananaPepperButton.addActionListener(new ActionListener() {
+        JButton removeBananaPepper = new JButton("Remove Banana Peppers");
+        removeBananaPepper.setBounds(800 - 180 - 20,160,180,40);
+        removeBananaPepper.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Action to be performed when button is clicked
-                System.out.println("Added Banana Peppers");
-                bananaPeppers.setVisible(true);
+                System.out.println("Removed Banana Peppers");
+                bananaPeppers.setVisible(false);
                 frame.repaint();
             }
         });
@@ -301,6 +301,8 @@ public class Main{
 
         frame.add(bananaPepperButton);
         bananaPepperButton.setVisible(false);
+        frame.add(removeBananaPepper);
+        removeBananaPepper.setVisible(false);
 
         frame.add(pepperoniButton);
         pepperoniButton.setVisible(false);
@@ -369,6 +371,7 @@ public class Main{
                     removeJalapeno.setVisible(true);
 
                     bananaPepperButton.setVisible(true);
+                    removeBananaPepper.setVisible(true);
 
                     pepperoniButton.setVisible(true);
 
