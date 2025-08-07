@@ -249,12 +249,12 @@ public class Main{
 
         JButton removePepperoni = new JButton("Remove Pepperoni");
         removePepperoni.setBounds(800 - 150 - 20,210,150,40);
-        pepperoniButton.addActionListener(new ActionListener() {
+        removePepperoni.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Action to be performed when button is clicked
-                System.out.println("Added Pepperoni");
-                pepperoni.setVisible(true);
+                System.out.println("Remove Pepperoni");
+                pepperoni.setVisible(false);
                 frame.repaint();
             }
         });
@@ -306,6 +306,8 @@ public class Main{
 
         frame.add(pepperoniButton);
         pepperoniButton.setVisible(false);
+        frame.add(removePepperoni);
+        removePepperoni.setVisible(false);
 
         frame.add(basilButton);
         basilButton.setVisible(false);
@@ -374,6 +376,7 @@ public class Main{
                     removeBananaPepper.setVisible(true);
 
                     pepperoniButton.setVisible(true);
+                    removePepperoni.setVisible(true);
 
                     basilButton.setVisible(true);
 
