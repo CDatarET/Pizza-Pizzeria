@@ -247,8 +247,8 @@ public class Main{
             }
         });
 
-        JButton removePepperoni = new JButton("Pepperoni");
-        pepperoniButton.setBounds(10,210,100,40);
+        JButton removePepperoni = new JButton("Remove Pepperoni");
+        removePepperoni.setBounds(800 - 150 - 20,210,150,40);
         pepperoniButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
