@@ -259,14 +259,14 @@ public class Main{
             }
         });
 
-        JButton removeBasil = new JButton("Basil");
-        basilButton.setBounds(10,260,80,40);
-        basilButton.addActionListener(new ActionListener() {
+        JButton removeBasil = new JButton("Remove Basil");
+        removeBasil.setBounds(800 - 120 - 20,260,120,40);
+        removeBasil.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Action to be performed when button is clicked
-                System.out.println("Added Basil");
-                basil.setVisible(true);
+                System.out.println("Removed Basil");
+                basil.setVisible(false);
                 frame.repaint();
             }
         });
@@ -311,6 +311,8 @@ public class Main{
 
         frame.add(basilButton);
         basilButton.setVisible(false);
+        frame.add(removeBasil);
+        removeBasil.setVisible(false);
 
         frame.add(onionButton);
         onionButton.setVisible(false);
@@ -379,6 +381,7 @@ public class Main{
                     removePepperoni.setVisible(true);
 
                     basilButton.setVisible(true);
+                    removeBasil.setVisible(true);
 
                     onionButton.setVisible(true);
 
