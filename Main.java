@@ -271,14 +271,14 @@ public class Main{
             }
         });
 
-        JButton removeOnion = new JButton("Onions");
-        onionButton.setBounds(10,310,80,40);
-        onionButton.addActionListener(new ActionListener() {
+        JButton removeOnion = new JButton("Remove Onions");
+        removeOnion.setBounds(800 - 20 - 130,310,130,40);
+        removeOnion.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Action to be performed when button is clicked
-                System.out.println("Added Onions");
-                onions.setVisible(true);
+                System.out.println("Removed Onions");
+                onions.setVisible(false);
                 frame.repaint();
             }
         });
@@ -316,6 +316,8 @@ public class Main{
 
         frame.add(onionButton);
         onionButton.setVisible(false);
+        frame.add(removeOnion);
+        removeOnion.setVisible(false);
 
         frame.add(tomatoButton);
         tomatoButton.setVisible(false);
@@ -384,6 +386,7 @@ public class Main{
                     removeBasil.setVisible(true);
 
                     onionButton.setVisible(true);
+                    removeOnion.setVisible(true);
 
                     tomatoButton.setVisible(true);
 
