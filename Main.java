@@ -63,7 +63,7 @@ public class Main{
 
         JLabel bananaPeppers = new JLabel();
         bananaPeppers.setBounds((800 / 2) - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
-        bananaPeppers.setIcon(new ImageIcon("bananaPepper.png"));
+        bananaPeppers.setIcon(new ImageIcon("images\\bananaPepper.png"));
 
         JLabel pepperoni = new JLabel();
         pepperoni.setBounds((800 / 2) - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
@@ -71,7 +71,7 @@ public class Main{
 
         JLabel basil = new JLabel();
         basil.setBounds((800 / 2) - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
-        basil.setIcon(new ImageIcon("basil.png"));
+        basil.setIcon(new ImageIcon("images\\basil.png"));
 
         JLabel onions = new JLabel();
         onions.setBounds((800 / 2) - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
@@ -83,7 +83,7 @@ public class Main{
         
         JLabel bellPepper = new JLabel();
         bellPepper.setBounds((800 / 2) - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
-        bellPepper.setIcon(new ImageIcon("bellPepper.png"));
+        bellPepper.setIcon(new ImageIcon("images\\bellPepper.png"));
 
         //buttons for adding
         JButton oliveButton = new JButton("Olives");
