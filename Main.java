@@ -47,7 +47,7 @@ public class Main{
         //pizza components
         JLabel pizzaBase = new JLabel();
         pizzaBase.setBounds((800 / 2) - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
-        pizzaBase.setIcon(new ImageIcon("pizzaBase.png"));
+        pizzaBase.setIcon(new ImageIcon("images\\pizzaBase.png"));
 
         JLabel olives = new JLabel();
         olives.setBounds((800 / 2) - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
