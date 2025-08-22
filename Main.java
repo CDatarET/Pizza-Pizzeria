@@ -59,7 +59,7 @@ public class Main{
 
         JLabel jalapenos = new JLabel();
         jalapenos.setBounds((800 / 2) - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
-        jalapenos.setIcon(new ImageIcon("jalapeno.png"));
+        jalapenos.setIcon(new ImageIcon("images\\jalapeno.png"));
 
         JLabel bananaPeppers = new JLabel();
         bananaPeppers.setBounds((800 / 2) - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
