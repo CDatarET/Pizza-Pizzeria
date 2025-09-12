@@ -51,11 +51,11 @@ public class Main{
 
         JLabel olives = new JLabel();
         olives.setBounds((800 / 2) - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
-        olives.setIcon(new ImageIcon("olive.png"));
+        olives.setIcon(new ImageIcon("images\\olive.png"));
 
         JLabel mushrooms = new JLabel();
         mushrooms.setBounds((800 / 2) - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
-        mushrooms.setIcon(new ImageIcon("mushroom.png"));
+        mushrooms.setIcon(new ImageIcon("images\\mushroom.png"));
 
         JLabel jalapenos = new JLabel();
         jalapenos.setBounds((800 / 2) - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
@@ -67,7 +67,7 @@ public class Main{
 
         JLabel pepperoni = new JLabel();
         pepperoni.setBounds((800 / 2) - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
-        pepperoni.setIcon(new ImageIcon("pepperoni.png"));
+        pepperoni.setIcon(new ImageIcon("images\\pepperoni.png"));
 
         JLabel basil = new JLabel();
         basil.setBounds((800 / 2) - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
@@ -75,11 +75,11 @@ public class Main{
 
         JLabel onions = new JLabel();
         onions.setBounds((800 / 2) - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
-        onions.setIcon(new ImageIcon("onions.png"));
+        onions.setIcon(new ImageIcon("images\\onions.png"));
 
         JLabel tomato = new JLabel();
         tomato.setBounds((800 / 2) - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
-        tomato.setIcon(new ImageIcon("tomato.png"));
+        tomato.setIcon(new ImageIcon("images\\tomato.png"));
         
         JLabel bellPepper = new JLabel();
         bellPepper.setBounds((800 / 2) - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
