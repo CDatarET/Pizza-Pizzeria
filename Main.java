@@ -335,6 +335,30 @@ public class Main{
             }
         });
 
+        JButton removeTomato = new JButton("Remove Tomatoes");
+        removeTomato.setBounds(800 - 20 - 150,360,150,40);
+        removeTomato.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Action to be performed when button is clicked
+                System.out.println("Removed Tomatoes");
+                tomato.setVisible(false);
+                frame.repaint();
+            }
+        });
+
+        JButton removeBellPepper = new JButton("Remove Bell Peppers");
+        removeBellPepper.setBounds(800 - 20 - 180,410,180,40);
+        removeBellPepper.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Action to be performed when button is clicked
+                System.out.println("Removed Bell Peppers");
+                bellPepper.setVisible(false);
+                frame.repaint();
+            }
+        });
+
         //add buttons
         frame.add(oliveButton);
         oliveButton.setVisible(false);
@@ -373,9 +397,13 @@ public class Main{
 
         frame.add(tomatoButton);
         tomatoButton.setVisible(false);
+        frame.add(removeTomato);
+        removeTomato.setVisible(false);
 
         frame.add(bellPepperButton);
         bellPepperButton.setVisible(false);
+        frame.add(removeBellPepper);
+        removeTomato.setVisible(false);
 
         //add components
         frame.add(olives);
@@ -441,8 +469,10 @@ public class Main{
                     removeOnion.setVisible(true);
 
                     tomatoButton.setVisible(true);
+                    removeTomato.setVisible(true);
 
                     bellPepperButton.setVisible(true);
+                    removeBellPepper.setVisible(true);
 
                     pizzaBase.setVisible(true);
 
