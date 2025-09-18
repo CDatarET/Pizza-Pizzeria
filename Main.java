@@ -403,7 +403,7 @@ public class Main{
         frame.add(bellPepperButton);
         bellPepperButton.setVisible(false);
         frame.add(removeBellPepper);
-        removeTomato.setVisible(false);
+        removeBellPepper.setVisible(false);
 
         //add components
         frame.add(olives);
