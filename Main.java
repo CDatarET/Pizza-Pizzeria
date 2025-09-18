@@ -22,6 +22,62 @@ public class Main{
         storage.addCustomer(customer);
     }
 
+    public static Pizza[] generateOrder(Customer c){
+        Random rand = new Random();
+        int numPizza = 0;
+        int chance = 1;
+        
+        while(true){
+            double prob = Math.random();
+            double check = 1 / Math.sqrt(chance);
+
+            if(prob > check){
+                break;
+            }
+            else{
+                chance++;
+                numPizza++;
+            }
+
+        }
+
+        Pizza[] order = new Pizza[numPizza];
+        for(int i = 0; i < numPizza; i++){
+            boolean custom = rand.nextBoolean();
+            custom = false; //fix later
+
+            if(custom){
+                //fix later
+            }
+            else{
+                int numTopping = (int)(Math.random()*5);
+                float cost = 7 + (numTopping * 2);
+
+                if(numTopping == 0){
+                    Pizza pizza = new Pizza("Plain Cheese", new String[]{}, cost);
+                    order[i] = pizza;
+                    continue;
+                }
+
+                String[] tops = new String[numTopping];
+                String[] toppings = {"Olives", "Mushrooms", "Jalapeno", "Banana Pepper", "Pepperoni", "Basil", "Onions", "Tomatoes", "Bell Peppers"};
+                for (int j = toppings.length - 1; j > 0; j--) {
+                    int k = rand.nextInt(j + 1);
+                    String temp = toppings[j];
+                    toppings[j] = toppings[k];
+                    toppings[k] = temp;
+                }
+
+                for(int j = 0; j < numTopping; j++){
+                    tops[j] = toppings[j];
+                }
+                Pizza pizza = new Pizza("", tops, cost);
+                order[i] = pizza;
+            }
+        }
+        return(order);
+    }
+
     public static void main(String[] args){
         System.out.println("Hello World");
         
@@ -394,6 +450,22 @@ public class Main{
 
                     addCustomer(initialId);
                     orderLabel.setText(storage.getCustomer(initialId).name);
+                    Pizza[] pizzas = generateOrder(storage.getCustomer(initialId));
+                    System.out.println(pizzas.length);
+                    for(int i = 0; i < pizzas.length; i++){
+                        if(pizzas[i].getToppings().length == 0){
+                            System.out.println(pizzas[i].getName());
+                            continue;
+                        }
+
+                        for(int j = 0; j < pizzas[i].getToppings().length; j++){
+                            if(j == pizzas[i].getToppings().length - 1){
+                                System.out.println(pizzas[i].getToppings()[j]);
+                                break;
+                            }
+                            System.out.print(pizzas[i].getToppings()[j] + ", ");
+                        }
+                    }
                 }
                 else{
                     Random rand = new Random();

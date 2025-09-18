@@ -1,9 +1,9 @@
 public class Pizza {
     private String name;
     private String[] toppings;
-    private int cost;
+    private float cost;
 
-    public Pizza(String name, String[] toppings, int cost, Pizza next) {
+    public Pizza(String name, String[] toppings, float cost) {
         this.name = name;
         this.toppings = toppings;
         this.cost = cost;
@@ -28,12 +28,11 @@ public class Pizza {
     }
 
     // Getter and Setter for cost
-    public int getCost() {
+    public float getCost() {
         return cost;
     }
 
     public void setCost(int cost) {
         this.cost = cost;
     }
-
 }
