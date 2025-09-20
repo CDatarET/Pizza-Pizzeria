@@ -7,9 +7,9 @@ import javax.swing.border.Border;
 
 public class Main{
     public static Storage storage = new Storage();
-    public static int initialId = 00000;
+    public static int initialId = 0;
     public static int count = 0;
-    public static int limit = 10;
+    public static int limit = initialId + 10; //increase limit or remove completely when testing is over
 
     public static void addCustomer(int id){
         Random rand = new Random();
@@ -34,11 +34,9 @@ public class Main{
             if(prob > check){
                 break;
             }
-            else{
-                chance++;
-                numPizza++;
-            }
-
+            
+            chance++;
+            numPizza++;
         }
 
         Pizza[] order = new Pizza[numPizza];
@@ -87,22 +85,26 @@ public class Main{
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
 
-        JLabel orderLabel = new JLabel();
-        orderLabel.setBounds(350, 50, 100, 30);
-        orderLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        orderLabel.setVerticalAlignment(SwingConstants.CENTER);
-        orderLabel.setText("Pizza Pizzeria");
+        JFrame orderFrame = new JFrame("Customer's Order");
+        orderFrame.setSize(300, 500);
+        orderFrame.setLayout(null);
+
+        JLabel customerLabel = new JLabel();
+        customerLabel.setBounds(350, 50, 100, 30);
+        customerLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        customerLabel.setVerticalAlignment(SwingConstants.CENTER);
+        customerLabel.setText("Pizza Pizzeria");
         Border border = BorderFactory.createLineBorder(Color.black, 2);
-        orderLabel.setBorder(border);
-        frame.add(orderLabel);
+        customerLabel.setBorder(border);
+        frame.add(customerLabel);
 
         //pizza components
         JLabel pizzaBase = new JLabel();
-        pizzaBase.setBounds((800 / 2) - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
+        pizzaBase.setBounds(400 - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
         pizzaBase.setIcon(new ImageIcon("images\\pizzaBase.png"));
 
         JLabel olives = new JLabel();
-        olives.setBounds((800 / 2) - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
+        olives.setBounds(400 - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
         olives.setIcon(new ImageIcon("images\\olive.png"));
 
         JLabel mushrooms = new JLabel();
@@ -445,7 +447,7 @@ public class Main{
                     System.out.println("Started");
                     newButton.setBounds(600, 500, 150, 40);
                     newButton.setText("Submit Order");
-                    orderLabel.setBounds(400 - 75, 50, 150, 30);
+                    customerLabel.setBounds(325, 50, 150, 30);
 
                     oliveButton.setVisible(true);
                     removeOlive.setVisible(true);
@@ -479,9 +481,8 @@ public class Main{
                     frame.repaint();
 
                     addCustomer(initialId);
-                    orderLabel.setText(storage.getCustomer(initialId).name);
+                    customerLabel.setText(storage.getCustomer(initialId).name);
                     Pizza[] pizzas = generateOrder(storage.getCustomer(initialId));
-                    System.out.println(pizzas.length);
                     for(int i = 0; i < pizzas.length; i++){
                         if(pizzas[i].getToppings().length == 0){
                             System.out.println(pizzas[i].getName());
@@ -496,6 +497,9 @@ public class Main{
                             System.out.print(pizzas[i].getToppings()[j] + ", ");
                         }
                     }
+
+                    orderFrame.setLocation(frame.getX() + frame.getWidth(), frame.getY());
+                    orderFrame.setVisible(true);
                 }
                 else{
                     Random rand = new Random();
@@ -507,7 +511,23 @@ public class Main{
                         addCustomer(id);
                         count++;
                     }
-                    orderLabel.setText(storage.getCustomer(id).name);
+                    customerLabel.setText(storage.getCustomer(id).name);
+
+                    Pizza[] pizzas = generateOrder(storage.getCustomer(initialId));
+                    for(int i = 0; i < pizzas.length; i++){
+                        if(pizzas[i].getToppings().length == 0){
+                            System.out.println(pizzas[i].getName());
+                            continue;
+                        }
+
+                        for(int j = 0; j < pizzas[i].getToppings().length; j++){
+                            if(j == pizzas[i].getToppings().length - 1){
+                                System.out.println(pizzas[i].getToppings()[j]);
+                                break;
+                            }
+                            System.out.print(pizzas[i].getToppings()[j] + ", ");
+                        }
+                    }
                 }
                 //reset pizza base
                 olives.setVisible(false);
