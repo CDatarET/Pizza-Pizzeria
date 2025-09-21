@@ -4,6 +4,7 @@ import java.awt.event.ActionListener;
 import java.util.*;
 import javax.swing.*;
 import javax.swing.border.Border;
+import java.lang.StringBuilder;
 
 public class Main{
     public static Storage storage = new Storage();
@@ -88,6 +89,12 @@ public class Main{
         JFrame orderFrame = new JFrame("Customer's Order");
         orderFrame.setSize(300, 500);
         orderFrame.setLayout(null);
+
+        JTextArea orderText = new JTextArea();
+        orderText.setEditable(false);
+        JScrollPane scrollPane = new JScrollPane(orderText);
+        scrollPane.setBounds(10, 10, 260, 440);
+        orderFrame.add(scrollPane);
 
         JLabel customerLabel = new JLabel();
         customerLabel.setBounds(350, 50, 100, 30);
@@ -440,6 +447,7 @@ public class Main{
 
         newButton.addActionListener(new ActionListener() {
             boolean init = true;
+            StringBuilder sb = new StringBuilder();
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Action to be performed when button is clicked
@@ -484,22 +492,27 @@ public class Main{
                     customerLabel.setText(storage.getCustomer(initialId).name);
                     Pizza[] pizzas = generateOrder(storage.getCustomer(initialId));
                     for(int i = 0; i < pizzas.length; i++){
+                        sb.append((i + 1) + ": ");
                         if(pizzas[i].getToppings().length == 0){
                             System.out.println(pizzas[i].getName());
+                            sb.append(pizzas[i].getName() + "\n");
                             continue;
                         }
 
                         for(int j = 0; j < pizzas[i].getToppings().length; j++){
                             if(j == pizzas[i].getToppings().length - 1){
                                 System.out.println(pizzas[i].getToppings()[j]);
+                                sb.append(pizzas[i].getToppings()[j] + "\n");
                                 break;
                             }
                             System.out.print(pizzas[i].getToppings()[j] + ", ");
+                            sb.append(pizzas[i].getToppings()[j] + ", ");
                         }
                     }
 
                     orderFrame.setLocation(frame.getX() + frame.getWidth(), frame.getY());
                     orderFrame.setVisible(true);
+                    orderText.setText(sb.toString());
                 }
                 else{
                     Random rand = new Random();
@@ -544,5 +557,6 @@ public class Main{
             }
         });
         frame.setVisible(true);
+        
     }
 }
