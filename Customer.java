@@ -6,12 +6,12 @@ public class Customer {
     public String email;
     public String phoneNumber;
     public String address;
-    public ArrayList<Pizza> previousOrders;
+    public ArrayList<Pizza[]> previousOrders;
     public int points;
     public ArrayList<Double> costs;
 
     // Constructor
-    public Customer(int id, String cName, String cEmail, String cNumber, String cAddress, ArrayList<Pizza> pOrders, int p, ArrayList<Double> cCosts) {
+    public Customer(int id, String cName, String cEmail, String cNumber, String cAddress, ArrayList<Pizza[]> pOrders, int p, ArrayList<Double> cCosts) {
         this.customerId = id;
         this.name = cName;
         this.email = cEmail;
@@ -63,11 +63,11 @@ public class Customer {
         this.address = address;
     }
 
-    public ArrayList<Pizza> getPreviousOrders() {
+    public ArrayList<Pizza[]> getPreviousOrders() {
         return previousOrders;
     }
 
-    public void setPreviousOrders(ArrayList<Pizza> previousOrders) {
+    public void setPreviousOrders(ArrayList<Pizza[]> previousOrders) {
         this.previousOrders = previousOrders;
     }
 
