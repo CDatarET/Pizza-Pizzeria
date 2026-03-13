@@ -134,43 +134,43 @@ public class Main{
         //pizza components
         JLabel pizzaBase = new JLabel();
         pizzaBase.setBounds(400 - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
-        pizzaBase.setIcon(new ImageIcon("images\\pizzaBase.png"));
+        pizzaBase.setIcon(new ImageIcon("images/pizzaBase.png"));
 
         JLabel olives = new JLabel();
         olives.setBounds(400 - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
-        olives.setIcon(new ImageIcon("images\\olive.png"));
+        olives.setIcon(new ImageIcon("images/olive.png"));
 
         JLabel mushrooms = new JLabel();
         mushrooms.setBounds((800 / 2) - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
-        mushrooms.setIcon(new ImageIcon("images\\mushroom.png"));
+        mushrooms.setIcon(new ImageIcon("images/mushroom.png"));
 
         JLabel jalapenos = new JLabel();
         jalapenos.setBounds((800 / 2) - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
-        jalapenos.setIcon(new ImageIcon("images\\jalapeno.png"));
+        jalapenos.setIcon(new ImageIcon("images/jalapeno.png"));
 
         JLabel bananaPeppers = new JLabel();
         bananaPeppers.setBounds((800 / 2) - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
-        bananaPeppers.setIcon(new ImageIcon("images\\bananaPepper.png"));
+        bananaPeppers.setIcon(new ImageIcon("images/bananaPepper.png"));
 
         JLabel pepperoni = new JLabel();
         pepperoni.setBounds((800 / 2) - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
-        pepperoni.setIcon(new ImageIcon("images\\pepperoni.png"));
+        pepperoni.setIcon(new ImageIcon("images/pepperoni.png"));
 
         JLabel basil = new JLabel();
         basil.setBounds((800 / 2) - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
-        basil.setIcon(new ImageIcon("images\\basil.png"));
+        basil.setIcon(new ImageIcon("images/basil.png"));
 
         JLabel onions = new JLabel();
         onions.setBounds((800 / 2) - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
-        onions.setIcon(new ImageIcon("images\\onions.png"));
+        onions.setIcon(new ImageIcon("images/onions.png"));
 
         JLabel tomato = new JLabel();
         tomato.setBounds((800 / 2) - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
-        tomato.setIcon(new ImageIcon("images\\tomato.png"));
+        tomato.setIcon(new ImageIcon("images/tomato.png"));
         
         JLabel bellPepper = new JLabel();
         bellPepper.setBounds((800 / 2) - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
-        bellPepper.setIcon(new ImageIcon("images\\bellPepper.png"));
+        bellPepper.setIcon(new ImageIcon("images/bellPepper.png"));
 
         //buttons for adding
         JButton oliveButton = new JButton("Olives");
