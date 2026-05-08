@@ -3,7 +3,7 @@ public class Pizza {
     private String[] toppings;
     private float cost;
 
-    public Pizza(String name, String[] toppings, float cost) {
+    public Pizza(String name, String[] toppings, float cost){
         this.name = name;
         this.toppings = toppings;
         this.cost = cost;

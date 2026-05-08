@@ -83,7 +83,7 @@ public class Customer {
         return costs;
     }
 
-    public void setCosts(ArrayList<Double> previousOrders) {
+    public void setCosts(ArrayList<Double> costs) {
         this.costs = costs;
     }
 }
