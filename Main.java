@@ -5,26 +5,9 @@ import java.util.*;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.lang.StringBuilder;
-import java.sql.*;
 
 public class Main{
-    public static Storage storage = new Storage();
-    public static int initialId = 0;
-    public static int count = 0;
-    public static int limit = initialId + 10; //increase limit or remove completely when testing is over
-
-    public static void addCustomer(int id){
-        Random rand = new Random();
-        String[] fNames = {"John", "Jane", "Ellen", "Rina", "Gregory", "Hugo", "Miyabi", "Bennett", "Ei", "Victor", "Evelyn", "Joseph", "Chiori", "Wise", "Belle", "Jack", "Ayaka", "Satoru", "Furina", "Clorinde", "Robert", "Barrack", "Donald", "Tsukishiro", "Luke", "Anakin", "Samuel", "Giorno"};
-        String[] lNames = {" Raiden", " Kamisato", " Chevalier", " Chen", " Joestar", " House", " Wilson", " Black", " Tucker", " Doe", " Sebastiane", " Hoshimi", " Yanagi", " Patel", " Speedwagon", " Kamado", " Van Astrea", " Karasuma", " Yoichi", " Cuddy", " Sangonomiya", " Skywalker", " Windu", " Kenobi"};
-        ArrayList<Pizza[]> orders = new ArrayList<Pizza[]>();
-        ArrayList<Double> costs = new ArrayList<Double>();
-
-        Customer customer = new Customer(id, fNames[rand.nextInt(fNames.length)] + lNames[rand.nextInt(lNames.length)], "placeholder@gmail.com", "placeholder number", "placeholder address", orders, 0, costs);
-        storage.addCustomer(customer);
-    }
-
-    public static Pizza[] generateOrder(Customer c){
+    public static Pizza[] generateOrder(){
         Random rand = new Random();
         int numPizza = 0;
         int chance = 1;
@@ -43,62 +26,51 @@ public class Main{
 
         Pizza[] order = new Pizza[numPizza];
         for(int i = 0; i < numPizza; i++){
-            boolean custom = rand.nextBoolean();
-            custom = false; //fix later
+            int numTopping = (int)(Math.random()*5);
 
-            if(custom){
-                //fix later
-            }
-            else{
-                int numTopping = (int)(Math.random()*5);
-                float cost = 7 + (numTopping * 2);
-
-                if(numTopping == 0){
-                    Pizza pizza = new Pizza("Plain Cheese", new String[]{}, cost);
-                    order[i] = pizza;
-                    continue;
-                }
-
-                String[] tops = new String[numTopping];
-                String[] toppings = {"Olives", "Mushrooms", "Jalapeno", "Banana Pepper", "Pepperoni", "Basil", "Onions", "Tomatoes", "Bell Peppers"};
-                for (int j = toppings.length - 1; j > 0; j--){
-                    int k = rand.nextInt(j + 1);
-                    String temp = toppings[j];
-                    toppings[j] = toppings[k];
-                    toppings[k] = temp;
-                }
-
-                for(int j = 0; j < numTopping; j++){
-                    tops[j] = toppings[j];
-                }
-                Pizza pizza = new Pizza("", tops, cost);
+            if(numTopping == 0){
+                Pizza pizza = new Pizza("Plain Cheese", new String[]{});
                 order[i] = pizza;
+                continue;
             }
+
+            String[] tops = new String[numTopping];
+            String[] toppings = {"Olives", "Mushrooms", "Jalapeno", "Banana Pepper", "Pepperoni", "Basil", "Onions", "Tomatoes", "Bell Peppers"};
+            for (int j = toppings.length - 1; j > 0; j--){
+                int k = rand.nextInt(j + 1);
+                String temp = toppings[j];
+                toppings[j] = toppings[k];
+                toppings[k] = temp;
+            }
+
+            for(int j = 0; j < numTopping; j++){
+                tops[j] = toppings[j];
+            }
+            Pizza pizza = new Pizza("", tops);
+            order[i] = pizza;
         }
         return(order);
     }
 
-    public static void displayOrder(JTextArea orderText, int id){
+    public static void displayOrder(JTextArea orderText){
         StringBuilder sb = new StringBuilder();
-        Pizza[] pizzas = generateOrder(storage.getCustomer(initialId));
-        storage.getCustomer(id).previousOrders.add(pizzas);
-
+        Pizza[] pizzas = generateOrder();
         for(int i = 0; i < pizzas.length; i++){
             sb.append((i + 1) + ": ");
-            if(pizzas[i].getToppings().length == 0){
-                System.out.println(pizzas[i].getName());
-                sb.append(pizzas[i].getName() + "\n");
+            if(pizzas[i].toppings.length == 0){
+                System.out.println(pizzas[i].name);
+                sb.append(pizzas[i].name + "\n");
                 continue;
             }
 
-            for(int j = 0; j < pizzas[i].getToppings().length; j++){
-                if(j == pizzas[i].getToppings().length - 1){
-                    System.out.println(pizzas[i].getToppings()[j]);
-                    sb.append(pizzas[i].getToppings()[j] + "\n");
+            for(int j = 0; j < pizzas[i].toppings.length; j++){
+                if(j == pizzas[i].toppings.length - 1){
+                    System.out.println(pizzas[i].toppings[j]);
+                    sb.append(pizzas[i].toppings[j] + "\n");
                     break;
                 }
-                System.out.print(pizzas[i].getToppings()[j] + ", ");
-                sb.append(pizzas[i].getToppings()[j] + ", ");
+                System.out.print(pizzas[i].toppings[j] + ", ");
+                sb.append(pizzas[i].toppings[j] + ", ");
             }
         }
         orderText.setText(sb.toString());
@@ -515,27 +487,14 @@ public class Main{
 
                     frame.repaint();
 
-                    addCustomer(initialId);
-                    customerLabel.setText(storage.getCustomer(initialId).name);
-
                     orderFrame.setLocation(frame.getX() + frame.getWidth(), frame.getY());
                     orderFrame.setVisible(true);
-                    displayOrder(orderText, initialId);
+                    displayOrder(orderText);
                     
                 }
                 else{
                     Random rand = new Random();
-                    int id = rand.nextInt(initialId, limit);
-                    if(storage.exists(id)){
-                        System.out.println(storage.getCustomer(id).getName() +" "+id);
-                    }
-                    else{
-                        addCustomer(id);
-                        count++;
-                    }
-                    customerLabel.setText(storage.getCustomer(id).name);
-
-                    displayOrder(orderText, id);
+                    displayOrder(orderText);
                 }
                 //reset pizza base
                 olives.setVisible(false);
