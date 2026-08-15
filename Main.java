@@ -4,7 +4,6 @@ import java.awt.event.ActionListener;
 import java.util.*;
 import javax.swing.*;
 import javax.swing.border.Border;
-import java.lang.StringBuilder;
 
 public class Main{
     public static Pizza[] generateOrder(){
@@ -104,9 +103,57 @@ public class Main{
         customerLabel.setBorder(border);
         frame.add(customerLabel);
 
+        JButton leftButton = new JButton("<-");
+        leftButton.setBounds(400 - 130, 450, 80, 40);
+        leftButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Action to be performed when button is clicked
+                frame.repaint();
+            }
+        });
+        frame.add(leftButton);
+        leftButton.setVisible(false);
+
+        JButton rightButton = new JButton("->");
+        rightButton.setBounds(400 + 50, 450, 80, 40);
+        rightButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Action to be performed when button is clicked
+                frame.repaint();
+            }
+        });
+        frame.add(rightButton);
+        rightButton.setVisible(false);
+
+        JButton addButton = new JButton("+");
+        addButton.setBounds(10, 500, 50, 40);
+        addButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Action to be performed when button is clicked
+                frame.repaint();
+            }
+        });
+        frame.add(addButton);
+        addButton.setVisible(false);
+
+        JButton removeButton = new JButton("-");
+        removeButton.setBounds(70, 500, 50, 40);
+        removeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Action to be performed when button is clicked
+                frame.repaint();
+            }
+        });
+        frame.add(removeButton);
+        removeButton.setVisible(false);
+
         //pizza components
         JLabel pizzaBase = new JLabel();
-        pizzaBase.setBounds(400 - (260 / 2), (600 / 2) - (260 / 2), 260, 260);
+        pizzaBase.setBounds(400 - 130, 300 - 130, 260, 260);
         pizzaBase.setIcon(new ImageIcon("images/pizzaBase.png"));
 
         JLabel olives = new JLabel();
@@ -255,7 +302,7 @@ public class Main{
         });
 
         JButton newButton = new JButton("Start");
-        newButton.setBounds((800 / 2) - 40, (600 / 2) - 20,80,40);
+        newButton.setBounds(400 - 40, 300 - 20, 80, 40);
         frame.add(newButton);
 
         //remove buttons
@@ -455,6 +502,10 @@ public class Main{
                     newButton.setBounds(600, 500, 150, 40);
                     newButton.setText("Submit Order");
                     customerLabel.setBounds(325, 50, 150, 30);
+                    leftButton.setVisible(true);
+                    rightButton.setVisible(true);
+                    addButton.setVisible(true);
+                    removeButton.setVisible(true);
 
                     oliveButton.setVisible(true);
                     removeOlive.setVisible(true);
@@ -511,6 +562,5 @@ public class Main{
             }
         });
         frame.setVisible(true);
-        
     }
 }
